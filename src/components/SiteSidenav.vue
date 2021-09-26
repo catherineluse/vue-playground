@@ -38,12 +38,12 @@
           d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
         />
       </svg>
-      <span class="text-1xl font-extrabold">Better Dev</span>
+      <span class="text-1xl font-extrabold">Gennit</span>
     </a>
 
     <nav>
-      <a
-        href="#"
+      <router-link
+        to="/"
         class="
           block
           py-2.5
@@ -53,11 +53,12 @@
           duration-200
           hover:bg-blue-700 hover:text-white
         "
+        active-class="bg-blue-700 text-white"
       >
-        Home
-      </a>
-      <a
-        href=""
+        Events
+      </router-link>
+      <router-link
+        to="/all-discussions"
         class="
           block
           py-2.5
@@ -67,11 +68,12 @@
           duration-200
           hover:bg-blue-700 hover:text-white
         "
+        active-class="bg-blue-700 text-white"
       >
-        About
-      </a>
-      <a
-        href=""
+        Discussions
+      </router-link>
+      <router-link
+        to="/all-communities"
         class="
           block
           py-2.5
@@ -81,11 +83,12 @@
           duration-200
           hover:bg-blue-700 hover:text-white
         "
+        active-class="bg-blue-700 text-white"
       >
-        Features
-      </a>
-      <a
-        href=""
+        Communities
+      </router-link>
+      <router-link
+        to="/c/cats"
         class="
           block
           py-2.5
@@ -95,9 +98,40 @@
           duration-200
           hover:bg-blue-700 hover:text-white
         "
+        active-class="bg-blue-700 text-white"
       >
-        Pricing
-      </a>
+        /c/cats
+      </router-link>
+      <router-link
+        to="/c/dogs"
+        class="
+          block
+          py-2.5
+          px-4
+          rounded
+          transition
+          duration-200
+          hover:bg-blue-700 hover:text-white
+        "
+        active-class="bg-blue-700 text-white"
+      >
+        /c/dogs
+      </router-link>
+       <router-link
+        to="/u/1"
+        class="
+          block
+          py-2.5
+          px-4
+          rounded
+          transition
+          duration-200
+          hover:bg-blue-700 hover:text-white
+        "
+        active-class="bg-blue-700 text-white"
+      >
+        User Profile
+      </router-link>
     </nav>
   </div>
 </template>

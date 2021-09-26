@@ -6,6 +6,7 @@ import Event from "./components/event/Event.vue";
 import SearchEvents from "./components/event/SearchEvents.vue";
 import Discussion from "./components/discussion/Discussion.vue";
 import SearchDiscussions from "./components/discussion/SearchDiscussions.vue";
+import Overview from "./components/community/Overview.vue";
 
 export const router = createRouter({
   history: createWebHistory(),
@@ -13,13 +14,14 @@ export const router = createRouter({
     { path: "/", component: SearchEvents },
     { path: "/all-discussions", component: SearchDiscussions },
     { path: "/all-communities", component: SearchCommunities },
-    { path: "/users/:id", component: UserProfile },
+    { path: "/u/:id", component: UserProfile },
     {
-      path: "/c/:communityUrl",
+      path: "/c/:communityUrl/",
       component: Community,
       children: [
         { path: "discussions", component: SearchDiscussions },
         { path: "events", component: SearchEvents },
+        { path: "overview", component: Overview },
       ],
     },
     {

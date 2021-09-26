@@ -1,14 +1,18 @@
-<script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
+<script lang="ts">
+import { defineComponent } from "vue";
+import Topnav from './components/Topnav.vue'
+import SiteSidenav from './components/SiteSidenav.vue'
 
-import Topnav from "./components/Topnav.vue";
-import SiteSidenav from "./components/SiteSidenav.vue";
-import CommunitySidenav from "./components/community/CommunitySidenav.vue";
-import CommunityContent from "./components/community/CommunityContent.vue";
-
-
-
+export default defineComponent({
+  setup() {
+   
+  },
+  name: "App",
+  components: {
+    Topnav,
+    SiteSidenav
+  }
+});
 </script>
 
 <template>
@@ -16,13 +20,7 @@ import CommunityContent from "./components/community/CommunityContent.vue";
     <div class="relative min-h-screen md:flex">
       <Topnav />
       <SiteSidenav />
-
-      <div class="flex-1 p-10 text-xl font-bold">
-        <div class="grid grid-cols-12">
-          <CommunitySidenav />
-          <CommunityContent />
-        </div>
-      </div>
+      <router-view></router-view>
     </div>
   </div>
 </template>
