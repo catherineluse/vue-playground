@@ -103,6 +103,8 @@
     </div>
 </template>
 
-<style>
-
+<style lang="scss">
+body {
+  color: gray;
+}
 </style>
