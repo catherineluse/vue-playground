@@ -1,6 +1,17 @@
-<script setup lang="ts">
+<script lang="ts">
+import { defineComponent } from "vue";
+import DiscussionList from "./DiscussionList.vue";
+
+export default defineComponent({
+  setup() {},
+  components: {
+    DiscussionList,
+  },
+});
 </script>
 
 <template>
-<div>SearchDiscussions</div>
+  <div>
+    <DiscussionList />
+  </div>
 </template>

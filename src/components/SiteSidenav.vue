@@ -58,7 +58,7 @@
         Events
       </router-link>
       <router-link
-        to="/all-discussions"
+        to="/discussions"
         class="
           block
           py-2.5
@@ -73,7 +73,7 @@
         Discussions
       </router-link>
       <router-link
-        to="/all-communities"
+        to="/channels"
         class="
           block
           py-2.5
@@ -85,7 +85,7 @@
         "
         active-class="bg-blue-700 text-white"
       >
-        Communities
+        Channels
       </router-link>
       <router-link
         to="/c/cats"

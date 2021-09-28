@@ -13,11 +13,11 @@ Since TypeScript cannot handle type information for `.vue` imports, they are shi
 ## Router
 
 - / (Home - search events)
-- /all-discussions/ (Search discussions)
-- /all-communities/ (Search communities)
+- /discussions/ (Search discussions)
+- /channels/ (Search channels)
 - /u/[Username] (User profile)
-- /c/[Community name] (Community overview)
-  - /c/[Community name]/discussions (Discussion list)
-    - /c/[Community name]/discussions/[Discussion ID] (Discussion detail)
-  - /c/Community name]/events (Event list)
-    - /c/[Community name]/events/[Event ID] (Event detail)
+- /c/[channel name] (channel overview)
+  - /c/[channel name]/discussions (Discussion list)
+    - /c/[channel name]/discussions/[Discussion ID] (Discussion detail)
+  - /c/channel name]/events (Event list)
+    - /c/[channel name]/events/[Event ID] (Event detail)
