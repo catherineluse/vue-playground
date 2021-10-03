@@ -1,5 +1,5 @@
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, PropType } from "vue";
 import {
   Dialog,
   DialogOverlay,
@@ -8,10 +8,18 @@ import {
   TransitionRoot,
 } from "@headlessui/vue";
 import { XIcon } from "@heroicons/vue/outline";
+import { DiscussionPreviewData } from "./discussionTypes";
 
 export default defineComponent({
   props: {
-      isOpen: Boolean
+    isOpen: {
+      type: Boolean,
+      required: true,
+    },
+    discussionPreviewData: {
+      type: Object as PropType<DiscussionPreviewData>,
+      required: true,
+    },
   },
   setup() {},
   components: {
@@ -30,7 +38,7 @@ export default defineComponent({
     <Dialog
       as="div"
       class="fixed inset-0 overflow-hidden"
-      @close="isOpen = false"
+      @close="$emit('closePreview')"
     >
       <div class="absolute inset-0 overflow-hidden">
         <DialogOverlay class="absolute inset-0" />
@@ -61,7 +69,7 @@ export default defineComponent({
                   <div class="px-4 sm:px-6">
                     <div class="flex items-start justify-between">
                       <DialogTitle class="text-lg font-medium text-gray-900">
-                        Panel title
+                        {{ discussionPreviewData.title }}
                       </DialogTitle>
                       <div class="ml-3 h-7 flex items-center">
                         <button
@@ -75,7 +83,7 @@ export default defineComponent({
                             focus:ring-2
                             focus:ring-indigo-500
                           "
-                          @click="open = false"
+                          @click="$emit('closePreview')"
                         >
                           <span class="sr-only">Close panel</span>
                           <XIcon class="h-6 w-6" aria-hidden="true" />
@@ -84,12 +92,7 @@ export default defineComponent({
                     </div>
                   </div>
                   <div class="mt-6 relative flex-1 px-4 sm:px-6">
-                    <!-- Replace with your content -->
-                    <div
-                      class="h-full border-2 border-dashed border-gray-200"
-                      aria-hidden="true"
-                    />
-                    <!-- /End replace -->
+                    {{ discussionPreviewData.body }}
                   </div>
                 </div>
                 <div class="flex-shrink-0 px-4 py-4 flex justify-end">
@@ -111,7 +114,7 @@ export default defineComponent({
                       focus:ring-offset-2
                       focus:ring-indigo-500
                     "
-                    @click="open = false"
+                    @click="$emit('closePreview')"
                   >
                     Cancel
                   </button>

@@ -12,7 +12,7 @@ export default defineComponent({
   },
   props: {
     links: {
-      type: Object as PropType<Link>,
+      type: Array as PropType<Link[]>,
     }
   },
 });

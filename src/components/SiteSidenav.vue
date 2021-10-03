@@ -18,9 +18,6 @@
       transform
       -translate-x-full
       md:relative md:translate-x-0
-      transition
-      duration-200
-      ease-in-out
     "
   >
     <a href="#" class="text-white flex items-center space-x-2 px-4">
@@ -49,8 +46,6 @@
           py-2.5
           px-4
           rounded
-          transition
-          duration-200
           hover:bg-blue-700 hover:text-white
         "
         active-class="bg-blue-700 text-white"
@@ -64,8 +59,6 @@
           py-2.5
           px-4
           rounded
-          transition
-          duration-200
           hover:bg-blue-700 hover:text-white
         "
         active-class="bg-blue-700 text-white"
@@ -79,8 +72,6 @@
           py-2.5
           px-4
           rounded
-          transition
-          duration-200
           hover:bg-blue-700 hover:text-white
         "
         active-class="bg-blue-700 text-white"
@@ -94,8 +85,6 @@
           py-2.5
           px-4
           rounded
-          transition
-          duration-200
           hover:bg-blue-700 hover:text-white
         "
         active-class="bg-blue-700 text-white"
@@ -109,8 +98,6 @@
           py-2.5
           px-4
           rounded
-          transition
-          duration-200
           hover:bg-blue-700 hover:text-white
         "
         active-class="bg-blue-700 text-white"
@@ -124,8 +111,6 @@
           py-2.5
           px-4
           rounded
-          transition
-          duration-200
           hover:bg-blue-700 hover:text-white
         "
         active-class="bg-blue-700 text-white"
