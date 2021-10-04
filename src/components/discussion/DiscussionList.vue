@@ -1,8 +1,8 @@
 <script lang="ts">
-import { defineComponent, computed } from "vue";
+import { defineComponent } from "vue";
 import DiscussionPreview from "./DiscussionPreview.vue";
 import DiscussionListItem from "./DiscussionListItem.vue";
-import { DiscussionPreviewData } from "../../typings/discussionTypes";
+import { DiscussionData } from "../../typings/discussionTypes";
 
 const discussions = [
   {
@@ -44,7 +44,7 @@ export default defineComponent({
     DiscussionListItem
   },
   methods: {
-    openPreview({ data }) {
+    openPreview(data: DiscussionData) {
       this.previewIsOpen = true
       this.selectedDiscussion = data
     },

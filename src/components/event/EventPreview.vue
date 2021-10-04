@@ -8,7 +8,7 @@ import {
   TransitionRoot,
 } from "@headlessui/vue";
 import { XIcon } from "@heroicons/vue/outline";
-import { DiscussionData } from "../../typings/discussionTypes";
+import { EventData } from "../../typings/eventTypes";
 
 export default defineComponent({
   props: {
@@ -16,8 +16,8 @@ export default defineComponent({
       type: Boolean,
       required: true,
     },
-    discussion: {
-      type: Object as PropType<DiscussionData>,
+    event: {
+      type: Object as PropType<EventData>,
       required: true,
     },
   },
@@ -69,7 +69,7 @@ export default defineComponent({
                   <div class="px-4 sm:px-6">
                     <div class="flex items-start justify-between">
                       <DialogTitle class="text-lg font-medium text-gray-900">
-                        {{ discussion.title }}
+                        {{ event.title }}
                       </DialogTitle>
                       <div class="ml-3 h-7 flex items-center">
                         <button
@@ -92,7 +92,7 @@ export default defineComponent({
                     </div>
                   </div>
                   <div class="mt-6 relative flex-1 px-4 sm:px-6">
-                    {{ discussion.body }}
+                    {{ event.description }}
                     <div class="mt-3 text-sm">
                       <a
                         href="#"

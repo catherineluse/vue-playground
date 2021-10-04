@@ -49,10 +49,10 @@ export const router = createRouter({
   ],
 });
 
-// - event preview - overlay with comment form
 // - discussion detail page with breadcrumbs and back button
 // - event detail page with breadcrumbs and back button
 // - channel breadcrumbs include events/discussions
+// - event list uses sticky dates
 
 // buttons
 // - channel detail and list page - pin to site navbar

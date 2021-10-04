@@ -1,12 +1,12 @@
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
-import { DiscussionPreviewData } from "../../typings/discussionTypes";
+import { DiscussionData } from "../../typings/discussionTypes";
 
 export default defineComponent({
   setup() {},
   props: {
     discussion: {
-      type: Object as PropType<DiscussionPreviewData>,
+      type: Object as PropType<DiscussionData>,
       required: true,
     },
   },
@@ -16,7 +16,7 @@ export default defineComponent({
     };
   },
   emits: {
-    openDiscussionPreview(payload: { data: DiscussionPreviewData }) {},
+    openDiscussionPreview(payload: DiscussionData) {},
   },
 });
 </script>
@@ -32,7 +32,7 @@ export default defineComponent({
       focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600
     "
   >
-    <div @click="$emit('openDiscussionPreview', { data: discussion })" class="flex justify-between space-x-3">
+    <div @click="$emit('openDiscussionPreview', discussion)" class="flex justify-between space-x-3">
       <div class="min-w-0 flex-1">
         <a href="#" class="block focus:outline-none">
           <span class="absolute inset-0" aria-hidden="true" />
