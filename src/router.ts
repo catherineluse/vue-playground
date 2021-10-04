@@ -49,20 +49,20 @@ export const router = createRouter({
   ],
 });
 
-// - discussion preview - overlay with comment form
-// - discussion detail page 
 // - event preview - overlay with comment form
-// - event detail page
+// - discussion detail page with breadcrumbs and back button
+// - event detail page with breadcrumbs and back button
+// - channel breadcrumbs include events/discussions
 
 // buttons
-// - channel discussion list - dropdown to add to feed or create new
-// - channel event list - dropdown to add to feed or create new
-// - channel detail page - pin to site navbar
+// - channel detail and list page - pin to site navbar
 
 // site navbar
 // - pinned channels section
 // - feeds
 // - my feeds
+// - log in/log out buttons
+// - dark mode
 
 // forms
 // - create/edit community
@@ -80,6 +80,3 @@ export const router = createRouter({
 // - toggle map view or list view
 // - map view has list view in right-side panel
 // - selected map pins are selected in right-side panel
-// - clicking event in list view opens event preview
-//   overlay
-// - can go to event page details from preview overlay

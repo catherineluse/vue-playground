@@ -17,7 +17,7 @@
       left-0
       transform
       -translate-x-full
-      md:relative md:translate-x-0
+      lg:relative lg:translate-x-0
     "
   >
     <a href="#" class="text-white flex items-center space-x-2 px-4">

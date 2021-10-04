@@ -8,7 +8,7 @@ import {
   TransitionRoot,
 } from "@headlessui/vue";
 import { XIcon } from "@heroicons/vue/outline";
-import { DiscussionPreviewData } from "./discussionTypes";
+import { DiscussionPreviewData } from "../../typings/discussionTypes";
 
 export default defineComponent({
   props: {
@@ -16,7 +16,7 @@ export default defineComponent({
       type: Boolean,
       required: true,
     },
-    discussionPreviewData: {
+    discussion: {
       type: Object as PropType<DiscussionPreviewData>,
       required: true,
     },
@@ -69,7 +69,7 @@ export default defineComponent({
                   <div class="px-4 sm:px-6">
                     <div class="flex items-start justify-between">
                       <DialogTitle class="text-lg font-medium text-gray-900">
-                        {{ discussionPreviewData.title }}
+                        {{ discussion.title }}
                       </DialogTitle>
                       <div class="ml-3 h-7 flex items-center">
                         <button
@@ -92,7 +92,51 @@ export default defineComponent({
                     </div>
                   </div>
                   <div class="mt-6 relative flex-1 px-4 sm:px-6">
-                    {{ discussionPreviewData.body }}
+                    {{ discussion.body }}
+                    <div class="mt-3 text-sm">
+                      <a
+                        href="#"
+                        class="
+                          font-medium
+                          text-indigo-600
+                          hover:text-indigo-500
+                        "
+                      >
+                        View Comments
+                        <span aria-hidden="true">&rarr;</span></a
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex-1 flex flex-col justify-end">
+                  <div class="px-4 divide-y divide-gray-200 sm:px-6">
+                    <div class="space-y-6 pt-6 pb-5">
+                      <div>
+                        <label
+                          for="description"
+                          class="block text-sm font-medium text-gray-900"
+                        >
+                          Comment
+                        </label>
+                        <div class="mt-1">
+                          <textarea
+                            id="description"
+                            name="description"
+                            rows="4"
+                            class="
+                              block
+                              w-full
+                              shadow-sm
+                              sm:text-sm
+                              focus:ring-indigo-500 focus:border-indigo-500
+                              border border-gray-300
+                              rounded-md
+                            "
+                          />
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="flex-shrink-0 px-4 py-4 flex justify-end">

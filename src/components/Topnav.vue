@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="bg-gray-800 text-gray-100 flex justify-between md:hidden">
+  <div class="bg-gray-800 text-gray-100 flex justify-between lg:hidden">
     <a href="#" class="block p-4 text-white font-bold"> Better Dev </a>
 
     <button class="mobile-menu-button p-4 focus:outline-none focus:bg-gray-700">

@@ -17,7 +17,7 @@ export default defineComponent({
 
 <template>
   <div className="App">
-    <div class="relative min-h-screen md:flex">
+    <div class="relative min-h-screen lg:flex">
       <Topnav />
       <SiteSidenav />
       <router-view></router-view>
