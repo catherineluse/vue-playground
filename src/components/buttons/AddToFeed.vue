@@ -77,17 +77,7 @@ export default defineComponent({
                 active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                 'block px-4 py-2 text-sm',
               ]"
-              >Default</a
-            >
-          </MenuItem>
-          <MenuItem v-slot="{ active }">
-            <a
-              href="#"
-              :class="[
-                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                'block px-4 py-2 text-sm',
-              ]"
-              >custom</a
+              >+ Create New</a
             >
           </MenuItem>
         </div>
@@ -99,7 +89,17 @@ export default defineComponent({
                 active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                 'block px-4 py-2 text-sm',
               ]"
-              >+ Create New</a
+              >Default</a
+            >
+          </MenuItem>
+          <MenuItem v-slot="{ active }">
+            <a
+              href="#"
+              :class="[
+                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                'block px-4 py-2 text-sm',
+              ]"
+              >custom</a
             >
           </MenuItem>
         </div>

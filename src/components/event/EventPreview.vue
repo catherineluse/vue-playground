@@ -8,7 +8,7 @@ import {
   TransitionRoot,
 } from "@headlessui/vue";
 import { XIcon } from "@heroicons/vue/outline";
-import { EventData } from "../../typings/eventTypes";
+import { EventData } from "../../types/eventTypes";
 
 export default defineComponent({
   props: {
@@ -20,6 +20,10 @@ export default defineComponent({
       type: Object as PropType<EventData>,
       required: true,
     },
+    channelId: {
+      type: String,
+      required: true
+    }
   },
   setup() {},
   components: {
@@ -46,10 +50,10 @@ export default defineComponent({
         <div class="fixed inset-y-0 right-0 pl-10 max-w-full flex">
           <TransitionChild
             as="template"
-            enter="transform transition ease-in-out duration-500 sm:duration-700"
+            enter="transform transition ease-in-out duration-100 sm:duration-100"
             enter-from="translate-x-full"
             enter-to="translate-x-0"
-            leave="transform transition ease-in-out duration-500 sm:duration-700"
+            leave="transform transition ease-in-out duration-100 sm:duration-100"
             leave-from="translate-x-0"
             leave-to="translate-x-full"
           >
@@ -93,19 +97,15 @@ export default defineComponent({
                   </div>
                   <div class="mt-6 relative flex-1 px-4 sm:px-6">
                     {{ event.description }}
-                    <div class="mt-3 text-sm">
-                      <a
-                        href="#"
-                        class="
-                          font-medium
-                          text-indigo-600
-                          hover:text-indigo-500
-                        "
-                      >
-                        View Comments
-                        <span aria-hidden="true">&rarr;</span></a
-                      >
-                    </div>
+                     <div class="mt-3 text-sm">
+            <router-link
+              :to="`/c/${channelId}/events/${event.id}`"
+              class="font-medium text-indigo-600 hover:text-indigo-500"
+            >
+              View Comments
+              <span aria-hidden="true">&rarr;</span>
+            </router-link>
+          </div>
                   </div>
                 </div>
 

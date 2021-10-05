@@ -1,6 +1,5 @@
 <script lang="ts">
 import ChannelSidenav from "./ChannelSidenav.vue";
-import ChannelContent from "./ChannelContent.vue";
 import Breadcrumbs from "../Breadcrumbs.vue";
 import { useRoute } from "vue-router";
 import { defineComponent, computed } from "vue";
@@ -13,26 +12,71 @@ export default defineComponent({
       return route.params.channelId;
     });
 
+    const discussionId = computed(() => {
+      return route.params.discussionId;
+    })
+
+    const eventId = computed(() => {
+      return route.params.eventId;
+    })
+
     const links = computed(() => {
-      return [
+      const { 
+        channelId,
+        discussionId,
+        eventId
+      } = route.params;
+
+      let channelBreadcrumbs = [
         {
           label: "Channels",
           path: "channels",
         },
         {
-          label: `/c/${route.params.channelId}`,
-          path: `c/${route.params.channelId}`,
+          label: `/c/${channelId}`,
+          path: `c/${channelId}`,
         },
       ];
+
+      if (route.path.includes("events")) {
+        channelBreadcrumbs.push({
+          label: "Events",
+          path: `c/${channelId}/events`,
+        });
+      }
+
+      if (route.path.includes("discussions")) {
+        channelBreadcrumbs.push({
+          label: "Discussions",
+          path: `c/${channelId}/discussions`,
+        });
+      }
+
+      if (discussionId){
+        channelBreadcrumbs.push({
+          label: "Discussion",
+          path: `c/${channelId}/discussions/${discussionId}`,
+        })
+      }
+
+      if (eventId){
+        channelBreadcrumbs.push({
+          label: "Event",
+          path: `c/${channelId}/events/${discussionId}`,
+        })
+      }
+      return channelBreadcrumbs;
     });
+
     return {
       channelId,
+      discussionId,
+      eventId,
       links,
     };
   },
   components: {
     ChannelSidenav,
-    ChannelContent,
     Breadcrumbs,
   },
 });
@@ -41,7 +85,7 @@ export default defineComponent({
 <template>
   <div class="flex-1 p-10 font-bold">
     <Breadcrumbs :links="links" />
-    <h2
+    <h2 v-if="!discussionId && !eventId"
       class="
         inline
         text-3xl
@@ -51,17 +95,18 @@ export default defineComponent({
         font-extrabold
         tracking-tight
         text-gray-900
-        sm:block sm:text-4xl
+        sm:block
+        sm:text-4xl
       "
     >
       {{ channelId }}
     </h2>
     <div class="grid grid-cols-12 lg:space-x-4">
-      <div class="col-span-12 lg:col-span-3">
+      <div v-if="!discussionId && !eventId" class="col-span-12 lg:col-span-2">
         <ChannelSidenav />
       </div>
-      <div class="col-span-12 lg:col-span-9">
-        <ChannelContent />
+      <div class="col-span-12 lg:col-span-10">
+        <router-view></router-view>
       </div>
     </div>
   </div>

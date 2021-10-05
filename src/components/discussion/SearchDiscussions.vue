@@ -26,6 +26,6 @@ export default defineComponent({
 <template>
   <div>
     <AddToFeed v-if="channelId"/>
-    <DiscussionList />
+    <DiscussionList :channel-id="channelId"/>
   </div>
 </template>

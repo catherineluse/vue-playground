@@ -8,7 +8,7 @@ import {
   TransitionRoot,
 } from "@headlessui/vue";
 import { XIcon } from "@heroicons/vue/outline";
-import { DiscussionData } from "../../typings/discussionTypes";
+import { DiscussionData } from "../../types/discussionTypes";
 
 export default defineComponent({
   props: {
@@ -18,6 +18,10 @@ export default defineComponent({
     },
     discussion: {
       type: Object as PropType<DiscussionData>,
+      required: true,
+    },
+    channelId: {
+      type: String,
       required: true,
     },
   },
@@ -46,10 +50,10 @@ export default defineComponent({
         <div class="fixed inset-y-0 right-0 pl-10 max-w-full flex">
           <TransitionChild
             as="template"
-            enter="transform transition ease-in-out duration-500 sm:duration-700"
+            enter="transform transition ease-in-out duration-100 sm:duration-100"
             enter-from="translate-x-full"
             enter-to="translate-x-0"
-            leave="transform transition ease-in-out duration-500 sm:duration-700"
+            leave="transform transition ease-in-out duration-100 sm:duration-100"
             leave-from="translate-x-0"
             leave-to="translate-x-full"
           >
@@ -80,8 +84,7 @@ export default defineComponent({
                             text-gray-400
                             hover:text-gray-500
                             focus:outline-none
-                            focus:ring-2
-                            focus:ring-indigo-500
+                            focus:ring-2 focus:ring-indigo-500
                           "
                           @click="$emit('closePreview')"
                         >
@@ -94,8 +97,8 @@ export default defineComponent({
                   <div class="mt-6 relative flex-1 px-4 sm:px-6">
                     {{ discussion.body }}
                     <div class="mt-3 text-sm">
-                      <a
-                        href="#"
+                      <router-link
+                        :to="`/c/${channelId}/discussions/${discussion.id}`"
                         class="
                           font-medium
                           text-indigo-600
@@ -103,8 +106,8 @@ export default defineComponent({
                         "
                       >
                         View Comments
-                        <span aria-hidden="true">&rarr;</span></a
-                      >
+                        <span aria-hidden="true">&rarr;</span>
+                      </router-link>
                     </div>
                   </div>
                 </div>
@@ -129,7 +132,8 @@ export default defineComponent({
                               w-full
                               shadow-sm
                               sm:text-sm
-                              focus:ring-indigo-500 focus:border-indigo-500
+                              focus:ring-indigo-500
+                              focus:border-indigo-500
                               border border-gray-300
                               rounded-md
                             "
@@ -154,9 +158,7 @@ export default defineComponent({
                       text-gray-700
                       hover:bg-gray-50
                       focus:outline-none
-                      focus:ring-2
-                      focus:ring-offset-2
-                      focus:ring-indigo-500
+                      focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500
                     "
                     @click="$emit('closePreview')"
                   >
@@ -179,9 +181,7 @@ export default defineComponent({
                       bg-indigo-600
                       hover:bg-indigo-700
                       focus:outline-none
-                      focus:ring-2
-                      focus:ring-offset-2
-                      focus:ring-indigo-500
+                      focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500
                     "
                   >
                     Save

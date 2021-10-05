@@ -1,6 +1,6 @@
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
-import { DiscussionData } from "../../typings/discussionTypes";
+import { DiscussionData } from "../../types/discussionTypes";
 
 export default defineComponent({
   setup() {},
@@ -9,14 +9,15 @@ export default defineComponent({
       type: Object as PropType<DiscussionData>,
       required: true,
     },
+    channelId: {
+      type: String,
+      required: true
+    }
   },
   data() {
     return {
       previewIsOpen: false,
     };
-  },
-  emits: {
-    openDiscussionPreview(payload: DiscussionData) {},
   },
 });
 </script>
@@ -28,22 +29,22 @@ export default defineComponent({
       bg-white
       py-5
       px-4
-      hover:bg-gray-50
-      focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600
     "
   >
-    <div @click="$emit('openDiscussionPreview', discussion)" class="flex justify-between space-x-3">
-      <div class="min-w-0 flex-1">
-        <a href="#" class="block focus:outline-none">
-          <span class="absolute inset-0" aria-hidden="true" />
-          <p class="text-sm font-medium text-gray-900 truncate">
-            {{ discussion.title }}
-          </p>
-          <p class="text-sm font-medium text-gray-500 truncate">
-            {{ discussion.author }}
-          </p>
-        </a>
+    <div class="flex justify-between space-x-3">
+      <div
+        class="block cursor-pointer"
+        @click="$emit('openDiscussionPreview', discussion)"
+      >
+        
+        <p class="text-md font-medium text-indigo-600 truncate">
+          <span>{{ discussion.title }}</span>
+        </p>
+        <p class="text-sm font-medium text-gray-500 truncate">
+          {{ discussion.author }}
+        </p>
       </div>
+
       <time
         :datetime="discussion.dateTime"
         class="
@@ -59,6 +60,14 @@ export default defineComponent({
       <p class="line-clamp-2 text-sm font-medium text-gray-600">
         {{ discussion.preview }}
       </p>
+    </div>
+    <div class="mt-3 text-sm">
+      <router-link
+        :to="`/c/${channelId}/discussions/${discussion.id}`" class=" font-medium text-indigo-600 hover:text-indigo-500 "
+      >
+        View Comments
+        <span aria-hidden="true">&rarr;</span>
+      </router-link>
     </div>
   </li>
 </template>

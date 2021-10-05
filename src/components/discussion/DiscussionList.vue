@@ -2,7 +2,7 @@
 import { defineComponent } from "vue";
 import DiscussionPreview from "./DiscussionPreview.vue";
 import DiscussionListItem from "./DiscussionListItem.vue";
-import { DiscussionData } from "../../typings/discussionTypes";
+import { DiscussionData } from "../../types/discussionTypes";
 
 const discussions = [
   {
@@ -24,34 +24,40 @@ const discussions = [
     body: "Doloremque dolorem maiores assumenda dolorem facilis. Velit vel in a rerum natus facere. Enim rerum eaque qui facilis. Numquam laudantium sed id dolores omnis in. Eos reiciendis deserunt maiores et accusamus quod dolor.",
     preview:
       "Doloremque dolorem maiores assumenda dolorem facilis. Velit vel in a rerum natus facere. Enim rerum eaque qui facilis. Numquam laudantium sed id dolores omnis in. Eos reiciendis deserunt maiores et accusamus quod dolor.",
-  }
+  },
 ];
 
 export default defineComponent({
   setup() {
     return {
       discussions,
-      selectedDiscussion: discussions[0]
+      selectedDiscussion: discussions[0],
     };
   },
   data() {
     return {
-      previewIsOpen: false
-    }
+      previewIsOpen: false,
+    };
+  },
+  props: {
+    channelId: {
+      type: String,
+      required: true,
+    },
   },
   components: {
     DiscussionPreview,
-    DiscussionListItem
+    DiscussionListItem,
   },
   methods: {
     openPreview(data: DiscussionData) {
-      this.previewIsOpen = true
-      this.selectedDiscussion = data
+      this.previewIsOpen = true;
+      this.selectedDiscussion = data;
     },
     closePreview() {
-      this.previewIsOpen = false
-    }
-  }
+      this.previewIsOpen = false;
+    },
+  },
 });
 </script>
 
@@ -61,12 +67,14 @@ export default defineComponent({
       v-for="discussion in discussions"
       :key="discussion.id"
       :discussion="discussion"
+      :channelId="channelId"
       @openDiscussionPreview="openPreview"
     />
-    <DiscussionPreview 
+    <DiscussionPreview
       :isOpen="previewIsOpen"
       :discussion="selectedDiscussion"
-      @closePreview='closePreview'
+      :channelId="channelId"
+      @closePreview="closePreview"
     />
   </ul>
 </template>

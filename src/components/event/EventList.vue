@@ -2,7 +2,7 @@
 import { defineComponent } from "vue";
 import EventListItem from "./EventListItem.vue";
 import EventPreview from "./EventPreview.vue";
-import { EventData } from "../../typings/eventTypes";
+import { EventData } from "../../types/eventTypes";
 
 const events = [
   {
@@ -41,6 +41,12 @@ export default defineComponent({
       selectedEvent: events[0]
     };
   },
+  props: {
+    channelId: {
+      type: String,
+      required: true,
+    },
+  },
   data() {
     return {
       previewIsOpen: false
@@ -69,11 +75,13 @@ export default defineComponent({
         v-for="event in events"
         :key="event.id"
         :event="event"
+        :channel-id="channelId"
         @openEventPreview="openPreview"
       />
       <EventPreview
         :isOpen="previewIsOpen"
         :event="selectedEvent"
+        :channel-id="channelId"
         @closePreview="closePreview"
       />
     </ul>

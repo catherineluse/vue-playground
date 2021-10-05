@@ -1,6 +1,6 @@
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
-import { EventData } from "../../typings/eventTypes";
+import { EventData } from "../../types/eventTypes";
 import {
   CalendarIcon,
   ChevronRightIcon,
@@ -15,6 +15,10 @@ export default defineComponent({
       type: Object as PropType<EventData>,
       required: true,
     },
+    channelId: {
+      type: String,
+      required: true,
+    },
   },
   data() {
     return {
@@ -27,36 +31,20 @@ export default defineComponent({
     LocationMarkerIcon,
     UsersIcon,
   },
-  emits: {
-    openEventPreview(payload: EventData) {},
-  },
 });
 </script>
 
 <template>
   <li>
-    <a href="#" class="block hover:bg-gray-50">
-      <div @click="$emit('openEventPreview', event)" class="px-4 py-4 sm:px-6">
+    <div class="block">
+      <div class="px-4 py-4 sm:px-6">
         <div class="flex items-center justify-between">
-          <p class="text-sm font-medium text-indigo-600 truncate">
+          <p
+            @click="$emit('openEventPreview', event)"
+            class="text-sm font-medium text-indigo-600 truncate cursor-pointer"
+          >
             {{ event.title }}
           </p>
-          <div class="ml-2 flex-shrink-0 flex">
-            <p
-              class="
-                px-2
-                inline-flex
-                text-xs
-                leading-5
-                font-semibold
-                rounded-full
-                bg-green-100
-                text-green-800
-              "
-            >
-              {{ event.type }}
-            </p>
-          </div>
         </div>
         <div class="mt-2 sm:flex sm:justify-between">
           <div class="sm:flex">
@@ -73,7 +61,8 @@ export default defineComponent({
                 flex
                 items-center
                 text-sm text-gray-500
-                sm:mt-0 sm:ml-6
+                sm:mt-0
+                sm:ml-6
               "
             >
               <LocationMarkerIcon
@@ -88,7 +77,8 @@ export default defineComponent({
                 flex
                 items-center
                 text-sm text-gray-500
-                sm:mt-0 sm:ml-6
+                sm:mt-0
+                sm:ml-6
               "
             >
               <CalendarIcon
@@ -99,9 +89,17 @@ export default defineComponent({
             </p>
           </div>
 
-          <ChevronRightIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
+          <div class="mt-3 text-sm">
+            <router-link
+              :to="`/c/${channelId}/events/${event.id}`"
+              class="font-medium text-indigo-600 hover:text-indigo-500"
+            >
+              View Comments
+              <span aria-hidden="true">&rarr;</span>
+            </router-link>
+          </div>
         </div>
       </div>
-    </a>
+    </div>
   </li>
 </template>

@@ -8,7 +8,6 @@
       sidebar
       bg-blue-800
       text-blue-100
-      w-64
       space-y-6
       py-7
       px-2

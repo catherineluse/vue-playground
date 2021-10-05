@@ -26,6 +26,6 @@ export default defineComponent({
 <template>
   <div class="flex-1 text-xl font-bold">
     <AddToFeed v-if="channelId"/>
-    <EventList />
+    <EventList :channel-id="channelId"/>
   </div>
 </template>
