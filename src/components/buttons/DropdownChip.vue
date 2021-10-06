@@ -19,31 +19,24 @@ export default defineComponent({
     <div>
       <MenuButton
         class="
-          mb-1
+          pl-3
+          pr-2
           inline-flex
-          justify-center
-          w-full
-          rounded-md
-          py-2
-          px-3
-          bg-white
-          text-sm
-          font-medium
-          text-gray-700
-          hover:bg-gray-50
-          focus:outline-none
-          focus:ring-offset-2
-          focus:ring-offset-gray-100
-          focus:ring-indigo-500
+          text-xs
+          leading-5
+          font-semibold
+          rounded-full
+          bg-green-100
+          text-green-800
+          cursor-pointer
         "
       >
-        Add to Feed
-        <ChevronDownIcon class="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
+        Future
+        <ChevronDownIcon class="-mr-1 h-5 w-4" aria-hidden="true" />
       </MenuButton>
     </div>
 
-    <transition
-    >
+    <transition>
       <MenuItems
         class="
           origin-top-right
@@ -68,19 +61,7 @@ export default defineComponent({
                 active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                 'block px-4 py-2 text-sm',
               ]"
-              >Create New</a
-            >
-          </MenuItem>
-        </div>
-        <div class="py-1">
-          <MenuItem v-slot="{ active }">
-            <a
-              href="#"
-              :class="[
-                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                'block px-4 py-2 text-sm',
-              ]"
-              >Default</a
+              >Future</a
             >
           </MenuItem>
           <MenuItem v-slot="{ active }">
@@ -90,7 +71,7 @@ export default defineComponent({
                 active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                 'block px-4 py-2 text-sm',
               ]"
-              >custom</a
+              >Past</a
             >
           </MenuItem>
         </div>

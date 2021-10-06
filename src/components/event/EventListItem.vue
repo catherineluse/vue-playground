@@ -15,10 +15,6 @@ export default defineComponent({
       type: Object as PropType<EventData>,
       required: true,
     },
-    channelId: {
-      type: String,
-      required: true,
-    },
   },
   data() {
     return {
@@ -91,7 +87,7 @@ export default defineComponent({
 
           <div class="mt-3 text-sm">
             <router-link
-              :to="`/c/${channelId}/events/${event.id}`"
+              :to="`/c/${event.channelId}/events/${event.id}`"
               class="font-medium text-indigo-600 hover:text-indigo-500"
             >
               View Comments

@@ -83,15 +83,14 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="flex-1 p-10 font-bold">
+  <div class="flex-1 px-10 font-bold">
     <Breadcrumbs :links="links" />
-    <h2 v-if="!discussionId && !eventId"
+    <h2 
       class="
         inline
         text-3xl
         mt-6
         mb-3
-        ml-2
         font-extrabold
         tracking-tight
         text-gray-900

@@ -41,6 +41,12 @@ export const router = createRouter({
   ],
 });
 
+
+// sort and filter events
+// - map pins trigger preview on mouseover
+// - map pins trigger event preview on click
+// - event list uses sticky dates
+
 // buttons
 // - channel detail and list page - pin to site navbar
 
@@ -49,21 +55,13 @@ export const router = createRouter({
 // - log in/log out buttons
 // - dark mode
 
+// profile
+// - user data preview on mouseover username
+
 // forms
 // - create/edit community
 // - create/edit discussion
 // - create/edit event
-
-// sort and filter events
-// - active filters displayed as chips
-// - filter dropdowns displayed as overlays
-// - toggle map view or list view
-// - map view has list view in right-side panel
-// - selected map pins are selected in right-side panel
-// - event list uses sticky dates
-
-// profile
-// - user data preview on mouseover username
 
 // feeds
 // - list - breadcrumbs

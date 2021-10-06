@@ -13,6 +13,7 @@ const events = [
     description: "Engineering",
     date: "2020-01-07",
     dateFull: "January 7, 2020",
+    channelId: "Development"
   },
   {
     id: 2,
@@ -22,6 +23,7 @@ const events = [
     description: "Engineering",
     date: "2020-01-07",
     dateFull: "January 7, 2020",
+    channelId: "Development"
   },
   {
     id: 3,
@@ -31,6 +33,7 @@ const events = [
     description: "Design",
     date: "2020-01-14",
     dateFull: "January 14, 2020",
+    channelId: "Development"
   },
 ];
 
@@ -40,12 +43,6 @@ export default defineComponent({
       events,
       selectedEvent: events[0]
     };
-  },
-  props: {
-    channelId: {
-      type: String,
-      required: true,
-    },
   },
   data() {
     return {
@@ -75,13 +72,11 @@ export default defineComponent({
         v-for="event in events"
         :key="event.id"
         :event="event"
-        :channel-id="channelId"
         @openEventPreview="openPreview"
       />
       <EventPreview
         :isOpen="previewIsOpen"
         :event="selectedEvent"
-        :channel-id="channelId"
         @closePreview="closePreview"
       />
     </ul>

@@ -5,17 +5,6 @@ import SearchDiscussions from "./SearchDiscussions.vue";
 
 export default defineComponent({
   setup() {
-    const links = computed(() => {
-      return [
-        {
-          label: "Discussions",
-          path: "discussions",
-        },
-      ];
-    });
-    return {
-      links,
-    };
   },
   components: {
     Breadcrumbs,
@@ -26,8 +15,7 @@ export default defineComponent({
 
 <template>
   <div>
-    <div class="flex-1 p-10">
-      <Breadcrumbs :links="links" />
+    <div class="flex-1 px-10">
       <h2
         class="
           inline

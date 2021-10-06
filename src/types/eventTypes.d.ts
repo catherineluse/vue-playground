@@ -6,4 +6,5 @@ export type EventData = {
     description: string;
     date: string;
     dateFull: string;
+    channelId: string;
 };

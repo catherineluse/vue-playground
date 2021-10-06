@@ -2,7 +2,11 @@
 import { defineComponent, computed } from "vue";
 import { useRoute } from "vue-router";
 import EventList from "./EventList.vue";
-import AddToFeed from "../buttons/AddToFeed.vue"
+import AddToFeed from "../buttons/AddToFeed.vue";
+import FlyoverMenu from "../buttons/FlyoverMenu.vue";
+import ActiveFilters from "../ActiveFilters.vue";
+import ToggleMap from "../buttons/ToggleMap.vue";
+import EventMap from "./EventMap.vue";
 
 export default defineComponent({
   setup() {
@@ -13,19 +17,43 @@ export default defineComponent({
     });
 
     return {
-      channelId
+      channelId,
+    };
+  },
+  data() {
+    return {
+      showMap: true
     }
   },
   components: {
     EventList,
-    AddToFeed
+    AddToFeed,
+    FlyoverMenu,
+    ActiveFilters,
+    ToggleMap,
+    EventMap
   },
 });
 </script>
 
 <template>
   <div class="flex-1 text-xl font-bold">
-    <AddToFeed v-if="channelId"/>
-    <EventList :channel-id="channelId"/>
+    <ActiveFilters/>
+    <div class="space-x-1">
+      <AddToFeed v-if="channelId" />
+      <FlyoverMenu :name="'Place'" />
+      <FlyoverMenu :name="'Date'" />
+      <FlyoverMenu :name="'Time Range'" />
+      <FlyoverMenu v-if="!channelId" :name="'Community'" />
+      <FlyoverMenu :name="'Tag'" />
+      <FlyoverMenu :name="'Other Filters'" />
+      <ToggleMap
+        :show-map="showMap"
+        @showMap="showMap = true"
+        @showList="showMap = false"
+      />
+    </div>
+    <EventMap v-if="showMap" />
+    <EventList v-if="!showMap" />
   </div>
 </template>

@@ -31,7 +31,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="flex-1 p-10 text-xl font-bold">
+  <div class="flex-1 px-10 text-xl font-bold">
     <Breadcrumbs :links="links" />
     <h2
       class="
