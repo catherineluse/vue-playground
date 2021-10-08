@@ -46,6 +46,7 @@ export const router = createRouter({
 // - map pins trigger preview on mouseover
 // - map pins trigger event preview on click
 // - event list uses sticky dates
+// - fix popover component
 
 // buttons
 // - channel detail and list page - pin to site navbar

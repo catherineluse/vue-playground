@@ -6,7 +6,7 @@ import AddToFeed from "../buttons/AddToFeed.vue";
 import FlyoverMenu from "../buttons/FlyoverMenu.vue";
 import ActiveFilters from "../ActiveFilters.vue";
 import ToggleMap from "../buttons/ToggleMap.vue";
-import EventMap from "./EventMap.vue";
+import Map from "./Map.vue";
 
 export default defineComponent({
   setup() {
@@ -31,7 +31,7 @@ export default defineComponent({
     FlyoverMenu,
     ActiveFilters,
     ToggleMap,
-    EventMap
+    Map
   },
 });
 </script>
@@ -53,7 +53,7 @@ export default defineComponent({
         @showList="showMap = false"
       />
     </div>
-    <EventMap v-if="showMap" />
+    <Map v-if="showMap" />
     <EventList v-if="!showMap" />
   </div>
 </template>
