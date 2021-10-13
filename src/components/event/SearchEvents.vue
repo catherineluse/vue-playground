@@ -22,8 +22,8 @@ export default defineComponent({
   },
   data() {
     return {
-      showMap: true
-    }
+      showMap: true,
+    };
   },
   components: {
     EventList,
@@ -31,28 +31,31 @@ export default defineComponent({
     FlyoverMenu,
     ActiveFilters,
     ToggleMap,
-    Map
+    Map,
   },
 });
 </script>
 
 <template>
   <div class="flex-1 text-xl font-bold">
-    <ActiveFilters/>
-    <div class="space-x-1">
-      <AddToFeed v-if="channelId" />
-      <FlyoverMenu :name="'Place'" />
-      <FlyoverMenu :name="'Date'" />
-      <FlyoverMenu :name="'Time Range'" />
-      <FlyoverMenu v-if="!channelId" :name="'Community'" />
-      <FlyoverMenu :name="'Tag'" />
-      <FlyoverMenu :name="'Other Filters'" />
-      <ToggleMap
-        :show-map="showMap"
-        @showMap="showMap = true"
-        @showList="showMap = false"
-      />
+    <div class="px-10">
+      <ActiveFilters />
+      
     </div>
+    <div class="space-x-1">
+        <AddToFeed v-if="channelId" />
+        <FlyoverMenu :name="'Place'" />
+        <FlyoverMenu :name="'Date'" />
+        <FlyoverMenu :name="'Time Range'" />
+        <FlyoverMenu v-if="!channelId" :name="'Community'" />
+        <FlyoverMenu :name="'Tag'" />
+        <FlyoverMenu :name="'Other Filters'" />
+        <ToggleMap
+          :show-map="showMap"
+          @showMap="showMap = true"
+          @showList="showMap = false"
+        />
+      </div>
     <Map v-if="showMap" />
     <EventList v-if="!showMap" />
   </div>

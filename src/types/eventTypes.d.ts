@@ -8,3 +8,8 @@ export type EventData = {
     dateFull: string;
     channelId: string;
 };
+
+export type Point = {
+    lat: number,
+    lng: number
+}
