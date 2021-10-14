@@ -7,15 +7,16 @@
     "serve": "vite preview"
   },
   "dependencies": {
+    "@fawmi/vue-google-maps": "^0.9.4",
     "@googlemaps/js-api-loader": "^1.12.5",
     "@headlessui/vue": "^1.4.1",
     "@heroicons/vue": "^1.0.4",
     "@tailwindcss/line-clamp": "^0.2.1",
     "vue": "^3.2.13",
-    "vue-router": "^4.0.11",
-    "vue3-google-map": "^0.8.2"
+    "vue-router": "^4.0.11"
   },
   "devDependencies": {
+    "@types/google.maps": "^3.45.6",
     "@vitejs/plugin-vue": "^1.9.0",
     "@vue/cli-plugin-typescript": "~4.5.0",
     "autoprefixer": "^10.3.6",
