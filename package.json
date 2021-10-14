@@ -9,6 +9,7 @@
   "dependencies": {
     "@fawmi/vue-google-maps": "^0.9.4",
     "@googlemaps/js-api-loader": "^1.12.5",
+    "@googlemaps/markerclusterer": "^1.0.8",
     "@headlessui/vue": "^1.4.1",
     "@heroicons/vue": "^1.0.4",
     "@tailwindcss/line-clamp": "^0.2.1",

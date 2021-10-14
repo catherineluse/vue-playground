@@ -19,10 +19,12 @@ export default defineComponent({
       :center="center"
       :zoom="7"
       map-type-id="terrain"
-      style="width: 100vw; height: 20rem"
+      style="width: 100vw; height: 50rem"
     >
-      <GMapCluster :zoomOnClick="true">
-        <GMapMarker 
+      <GMapCluster
+        :zoomOnClick="true"
+      >
+        <GMapMarker
           v-for="place in places"
           :key="place.Name"
           :position="{ lat: place.Latitude, lng: place.Longitude }"
